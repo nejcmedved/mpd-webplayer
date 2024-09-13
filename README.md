@@ -21,3 +21,15 @@ Clone this repo
 ### Run manually
 
 ``` python mpd_webplayer.py ```
+
+### Prepare service file
+
+Edit mpd-webplayer.service to fit your installation needs
+
+``` cp mpd-webplayer.service /lib/systemd/system ```
+
+``` systemctl daemon-reload ```
+
+``` systemctl start mpd-webplayer ```
+
+``` systemctl enable mpd-webplayer ```

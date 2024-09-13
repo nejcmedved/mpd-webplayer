@@ -43,6 +43,13 @@ async def pause():
     close()
     return {"message": "Paused"}
 
+@app.get("/status")
+async def status():
+    connect()
+    status = client.status()
+    close()
+    return {"status": status}
+
 
 @app.get("/volume")
 async def volume(volume: int):
