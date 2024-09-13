@@ -1,0 +1,24 @@
+# /etc/systemd/system/my_python_script.service
+[Unit]
+Description=MPD Web Interface
+After=network.target  # Specifies that the service should start after the network is up
+
+[Service]
+# User and group under which the script will run
+User=your_username
+Group=your_groupname
+
+# The working directory (optional, specify if your script depends on relative paths)
+WorkingDirectory=/home/user
+
+# Command to start the Python script using the interpreter from the virtual environment
+ExecStart=/home/user/my_env/bin/python /home/user/mpd_webplayer.py
+
+# Restart policy: restart on failure
+Restart=on-failure
+
+# Environment variables (optional)
+Environment="MY_ENV_VAR=value"
+
+[Install]
+WantedBy=multi-user.target
