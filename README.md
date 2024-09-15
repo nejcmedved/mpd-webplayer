@@ -2,6 +2,60 @@
 
 FastAPI <-> MPd player interface
 
+## Enpoints
+
+### API Endpoint: `/play`
+
+**Description**: Plays playlist.
+
+- **Method**: GET
+- **URL**: `/play`
+
+### API Endpoint: `/pause`
+
+**Description**: Pauses playing.
+
+- **Method**: GET
+- **URL**: `/pause`
+
+### API Endpoint: `/stop`
+
+**Description**: Stops playing.
+
+- **Method**: GET
+- **URL**: `/stop`
+
+### API Endpoint: `/next`
+
+**Description**: Plays next song in playlist.
+
+- **Method**: GET
+- **URL**: `/next`
+
+
+### API Endpoint: `/volume`
+
+**Description**: Sets volume to desired value.
+
+- **Method**: GET
+- **URL**: `/volume?volume=80`
+
+### API Endpoint: `/volup`
+
+**Description**: Increases volume by 5.
+
+- **Method**: GET
+- **URL**: `/volup`
+
+
+### API Endpoint: `/voldown`
+
+**Description**: Decreases volume by 5.
+
+- **Method**: GET
+- **URL**: `/voldown`
+
+
 ## Installation
 
 Clone this repo 

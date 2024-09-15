@@ -4,7 +4,7 @@ from fastapi import FastAPI
 import threading
 import time
 app = FastAPI()
-client = MPDClient()  # create client object
+client: MPDClient = MPDClient()  # create client object
 
 PLAYER = "127.0.0.1"
 
@@ -43,6 +43,23 @@ async def pause():
     close()
     return {"message": "Paused"}
 
+
+@app.get("/stop")
+async def pause():
+    connect()
+    client.stop()
+    close()
+    return {"message": "Stopped"}
+
+
+@app.get("/next")
+async def status():
+    connect()
+    client.next()
+    close()
+    return {"response": "OK"}
+
+
 @app.get("/status")
 async def status():
     connect()
@@ -57,6 +74,23 @@ async def volume(volume: int):
     client.setvol(volume)
     close()
     return {"message": f"volume: {volume}"}
+
+@app.get("/volup")
+async def volup():
+    connect()
+    client.volume(5)
+    status = client.status()
+    close()
+    return {"message": f"volume: {status['volume']}"}
+
+
+@app.get("/voldown")
+async def voldown():
+    connect()
+    client.volume(-5)
+    status = client.status()
+    close()
+    return {"message": f"volume: {status['volume']}"}
 
 
 if __name__ == "__main__":
